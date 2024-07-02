@@ -6,31 +6,22 @@
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 13:56:07 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/06/25 16:44:28 by ipais-mo         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:48:31 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Libft/libft.h"
-#include <stdarg.h>
+#include "printf.h"
 #include <stdio.h>
 
 int	printformat(char specifier, va_list args)
 {
-	unsigned int	count;
-	char	*s;
+	int	count;
 
 	count = 0;
 	if (specifier == 'c')
-	{
-		ft_putchar_fd(va_arg(args, int), 1);
-		count = 1;
-	}
+		count = ft_putchar_fd(va_arg(args, int), 1);
 	else if (specifier == 's')
-	{
-		s = va_arg(args, char *);
-		ft_putstr_fd(s, 1);
-		count = ft_strlen(s);
-	}
+		count = ft_putstr_fd(va_arg(args, char *), 1);
 	/*else if (specifier == 'd' || specifier == 'i')
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (specifier == 'u')
@@ -48,8 +39,8 @@ int	printformat(char specifier, va_list args)
 
 int	ft_printf(const char *format, ...)
 {
-	unsigned int	i;
-	unsigned int	count;
+	int	i;
+	int	count;
 	va_list			args;
 
 	i = 0;
@@ -74,7 +65,9 @@ int	main(void)
 {
 	int	count;
 
-	count = ft_printf("Hello %s", "Ines");
-	printf("%d", count);
+	count = ft_printf("Hello %s\n", "Ines");
+	//count = ft_printf("Hello %s\n", "Ines");
+	printf("%d\n", count);
+	ft_printf("Hello %c", 'I');
 	return (0);
 }
