@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 16:39:59 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/02 16:51:10 by ipais-mo         ###   ########.fr       */
+/*   Created: 2024/05/22 16:32:18 by ipais-mo          #+#    #+#             */
+/*   Updated: 2024/05/22 16:44:51 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-//Auxiliar LIbrary
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
+	int	count;
 
-int     ft_putchar_fd(char c, int fd);
-int     ft_putstr_fd(char *s, int fd);
-int     ft_putnbr_fd(int n, int fd);
-int     ft_signedputnbr_fd(int n, int fd);
-
-#endif
+	count = 1;
+	if (n / 10 != 0)
+	{
+		ft_putnbr_fd (n / 10, fd);
+		count++;
+	}
+	c = n % 10 + '0';
+	ft_putchar_fd(c, fd);
+	return (count);
+}

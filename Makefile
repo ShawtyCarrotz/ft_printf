@@ -14,7 +14,7 @@ NAME= libftprintf.a
 FLAGS= -Wall -Wextra -Werror
 CC= cc
 OBJ= $(SRC:.c=.o)
-SRC= ft_printf.c ft_putchar_fd.c ft_putstr_fd.c
+SRC= ft_printf.c ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_signedputnbr_fd.c
 
 RM= rm -rf
 

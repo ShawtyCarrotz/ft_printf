@@ -22,17 +22,18 @@ int	printformat(char specifier, va_list args)
 		count = ft_putchar_fd(va_arg(args, int), 1);
 	else if (specifier == 's')
 		count = ft_putstr_fd(va_arg(args, char *), 1);
-	/*else if (specifier == 'd' || specifier == 'i')
-		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (specifier == 'u')
-		ft_putnbr_fd(va_args(args, unsigned int), 1);
-	else if (specifier == 'x')
-		va_args(args, int);
+		count = ft_putnbr_fd(va_arg(args, unsigned int), 1);
+	//verify if I can use just signedputnumber for both
+	else if (specifier == 'd' || specifier == 'i')
+		count = ft_signedputnbr_fd(va_arg(args, int), 1);
+	/*else if (specifier == 'x')
+		va_arg(args, int);
 	else if (specifier == 'X')
-		va_args(args, int);
+		va_arg(args, int);
 	//if there's a char make it upper case
 	else if (specifier == 'p')
-		va_args(args, int);
+		va_arg(args, int);
 		//ft_printsignedint();*/
 	return (count);
 }
@@ -68,6 +69,13 @@ int	main(void)
 	count = ft_printf("Hello %s\n", "Ines");
 	//count = ft_printf("Hello %s\n", "Ines");
 	printf("%d\n", count);
-	ft_printf("Hello %c", 'I');
+	count = ft_printf("Hello %c\n", 'I');
+	printf("%d\n", count);
+	count = ft_printf("Hello %u\n", 1);
+	printf("%d\n", count);
+	count = ft_printf("Hello %u\n", 12);
+	printf("%d\n", count);
+	count = ft_printf("Hello %d\n", -12);
+	printf("%d\n", count);
 	return (0);
 }
