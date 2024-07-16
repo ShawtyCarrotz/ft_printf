@@ -6,7 +6,7 @@
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 13:56:07 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/02 16:48:31 by ipais-mo         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:47:01 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,23 @@ int	printformat(char specifier, va_list args)
 		count = ft_putstr_fd(va_arg(args, char *), 1);
 	else if (specifier == 'u')
 		count = ft_putnbr_fd(va_arg(args, unsigned int), 1);
-	//verify if I can use just signedputnumber for both
 	else if (specifier == 'd' || specifier == 'i')
-		count = ft_signedputnbr_fd(va_arg(args, int), 1);
-	/*else if (specifier == 'x')
-		va_arg(args, int);
-	else if (specifier == 'X')
-		va_arg(args, int);
-	//if there's a char make it upper case
+		count = ft_putnbr_fd(va_arg(args, int), 1);
+	else if (specifier == 'x' || specifier == 'X')
+		count = ft_hexaputnbr_fd(va_arg(args, int), specifier, 1);
 	else if (specifier == 'p')
-		va_arg(args, int);
-		//ft_printsignedint();*/
+	{
+		write(1, "0x", 2);
+		count = 2 + ft_addressputnbr_fd(va_arg(args, int), 1);
+	}
 	return (count);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	count;
-	va_list			args;
+	int		i;
+	int		count;
+	va_list	args;
 
 	i = 0;
 	count = 0;
@@ -67,7 +65,6 @@ int	main(void)
 	int	count;
 
 	count = ft_printf("Hello %s\n", "Ines");
-	//count = ft_printf("Hello %s\n", "Ines");
 	printf("%d\n", count);
 	count = ft_printf("Hello %c\n", 'I');
 	printf("%d\n", count);
@@ -76,6 +73,12 @@ int	main(void)
 	count = ft_printf("Hello %u\n", 12);
 	printf("%d\n", count);
 	count = ft_printf("Hello %d\n", -12);
+	printf("%d\n", count);
+	count = ft_printf("Hello %x\n", 14);
+	printf("%d\n", count);
+	count = ft_printf("Hello %X\n", 14);
+	printf("%d\n", count);
+	count = ft_printf("Hello %p\n", "ola");
 	printf("%d\n", count);
 	return (0);
 }
