@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_signedputnbr_fd.c                               :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:32:18 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/16 14:44:28 by ipais-mo         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:34:45 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	ft_putnbr_fd(int n, int fd)
 	char	c;
 	int		count;
 
-	count = 1;
+	count = ft_count(n);
 	if (n == -2147483648)
 	{
 		n = 147483648;
 		ft_putchar_fd('-', fd);
 		ft_putchar_fd('2', fd);
-		count = 2;
+		count++;
 	}
 	else if (n < 0)
 	{
@@ -32,10 +32,7 @@ int	ft_putnbr_fd(int n, int fd)
 		count++;
 	}
 	if (n / 10 != 0)
-	{
 		ft_putnbr_fd (n / 10, fd);
-		count++;
-	}
 	c = n % 10 + '0';
 	ft_putchar_fd(c, fd);
 	return (count);
