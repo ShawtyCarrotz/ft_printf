@@ -72,7 +72,11 @@ int	main(void)
 	printf("%d\n", count);
 	count = ft_printf("Hello %u\n", 12345678);
 	printf("%d\n", count);
+	count = printf("Hello %u\n", 12345678);
+	printf("%d\n", count);
 	count = ft_printf("Hello %d\n", -12345678);
+	printf("%d\n", count);
+	count = ft_printf("Hello %d\n", -2147483648);
 	printf("%d\n", count);
 	count = ft_printf("Hello %x\n", 140);
 	printf("%d\n", count);

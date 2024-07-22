@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count.c                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 19:22:47 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/17 19:34:55 by ipais-mo         ###   ########.fr       */
+/*   Created: 2024/05/22 12:32:17 by ipais-mo          #+#    #+#             */
+/*   Updated: 2024/07/02 16:43:53 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_count(int n)
+void	ft_putcharint_fd(char c, int fd, int *count)
 {
-	int	count;
-
-	count = 1;
-	while (n / 10 != 0)
-		count++;
-	return (count);
+	write (fd, &c, 1);
+	(*count)++;
 }

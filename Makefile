@@ -15,7 +15,7 @@ FLAGS= -Wall -Wextra -Werror
 CC= cc
 OBJ= $(SRC:.c=.o)
 SRC= ft_printf.c ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c ft_hexaputnbr_fd.c\
-     ft_count.c
+     ft_putcharint_fd.c
 
 RM= rm -rf
 

@@ -12,23 +12,28 @@
 
 #include "printf.h"
 
-int	ft_hexaputnbr_fd(int n, char specifier, int fd)
+void	ft_printhexa(int n, char specifier, int fd, int *count)
 {
 	char	c;
 	char	*base;
-	int		count;
 
-	count = 1;
 	base = "0123456789abcdef";
 	if (specifier == 'X')
 		base = "0123456789ABCDEF";
 	if (n / 16 != 0)
 	{
-		ft_hexaputnbr_fd (n / 16, specifier, fd);
-		ft_hexaputnbr_fd (n % 16, specifier, fd);
-		count++;
+		ft_printhexa (n / 16, specifier, fd, count);
+		ft_printhexa (n % 16, specifier, fd, count);
 	}
 	c = base[n % 16];
-	ft_putchar_fd(c, fd);
+	ft_putcharint_fd(c, fd, count);
+}
+
+int	ft_hexaputnbr_fd(int n, char specifier, int fd)
+{
+	int	count;
+
+	count = 0;
+	ft_printhexa(n, specifier, fd, &count);
 	return (count);
 }
