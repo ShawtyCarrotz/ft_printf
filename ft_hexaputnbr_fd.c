@@ -21,10 +21,7 @@ void	ft_printhexa(int n, char specifier, int fd, int *count)
 	if (specifier == 'X')
 		base = "0123456789ABCDEF";
 	if (n / 16 != 0)
-	{
 		ft_printhexa (n / 16, specifier, fd, count);
-		ft_printhexa (n % 16, specifier, fd, count);
-	}
 	c = base[n % 16];
 	ft_putcharint_fd(c, fd, count);
 }
