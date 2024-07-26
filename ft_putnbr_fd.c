@@ -6,11 +6,11 @@
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:32:18 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/17 19:34:45 by ipais-mo         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:58:30 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_printnbr(int n, int fd, int *count)
 {

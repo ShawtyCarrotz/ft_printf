@@ -6,12 +6,11 @@
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 13:56:07 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/17 19:27:58 by ipais-mo         ###   ########.fr       */
+/*   Updated: 2024/07/26 15:13:38 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 int	printformat(char specifier, va_list args)
 {
@@ -52,24 +51,34 @@ int	ft_printf(const char *format, ...)
 		else
 		{
 			i++;
-			count += printformat(format[i], args);
+			if (format[i] == '%')
+				count += write(1, &format[i], 1);
+			else
+				count += printformat(format[i], args);
 		}
 		i++;
 	}
 	va_end(args);
 	return (count);
 }
+/*
+#include <stdio.h>
 
 int	main(void)
 {
 	int	count;
-	//char	*string = "olalala";
-
+	char	*string = "tu es toto";
 	count = ft_printf("Hello %s\n", "Ines");
+	printf("%d\n", count);
+	count = printf("Hello %s\n", "Ines");
 	printf("%d\n", count);
 	count = ft_printf("Hello %c\n", 'I');
 	printf("%d\n", count);
+	count = printf("Hello %c\n", 'I');
+	printf("%d\n", count);
 	count = ft_printf("Hello %u\n", 1);
+	printf("%d\n", count);
+	count = printf("Hello %u\n", 1);
 	printf("%d\n", count);
 	count = ft_printf("Hello %u\n", 12345678);
 	printf("%d\n", count);
@@ -77,19 +86,29 @@ int	main(void)
 	printf("%d\n", count);
 	count = ft_printf("Hello %d\n", -12345678);
 	printf("%d\n", count);
+	count = printf("Hello %d\n", -12345678);
+	printf("%d\n", count);
 	count = ft_printf("Hello %d\n", -2147483648);
 	printf("%d\n", count);
 	count = ft_printf("Hello %x\n", 140);
 	printf("%d\n", count);
+	count = printf("Hello %x\n", 140);
+	printf("%d\n", count);
 	count = ft_printf("Hello %X\n", 140);
+	printf("%d\n", count);
+	count = printf("Hello %X\n", 140);
 	printf("%d\n", count);
 	count = ft_printf("Hello %x\n", 1000);
 	printf("%d\n", count);
+	count = printf("Hello %x\n", 1000);
+	printf("%d\n", count);
 	count = ft_printf("Hello %X\n", 1000);
 	printf("%d\n", count);
-	count = ft_printf("Hello %p\n", "olalala");
+	count = printf("Hello %X\n", 1000);
 	printf("%d\n", count);
-	count = printf("Hello %p\n", "olalala");
+	count = ft_printf("Hello %p\n", string);
+	printf("%d\n", count);
+	count = printf("Hello %p\n", string);
 	printf("%d\n", count);
 	return (0);
-}
+}*/

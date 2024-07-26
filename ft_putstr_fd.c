@@ -6,11 +6,11 @@
 /*   By: ipais-mo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:55:27 by ipais-mo          #+#    #+#             */
-/*   Updated: 2024/07/02 16:46:41 by ipais-mo         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:58:50 by ipais-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr_fd(char *s, int fd)
 {
