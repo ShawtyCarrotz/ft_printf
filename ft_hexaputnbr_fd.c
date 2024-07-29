@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_printhexa(int n, char specifier, int fd, int *count)
+void	ft_printhexa(unsigned int n, char specifier, int fd, int *count)
 {
 	char	c;
 	char	*base;
@@ -26,7 +26,7 @@ void	ft_printhexa(int n, char specifier, int fd, int *count)
 	ft_putcharint_fd(c, fd, count);
 }
 
-int	ft_hexaputnbr_fd(int n, char specifier, int fd)
+int	ft_hexaputnbr_fd(unsigned int n, char specifier, int fd)
 {
 	int	count;
 

@@ -22,16 +22,13 @@ int	printformat(char specifier, va_list args)
 	else if (specifier == 's')
 		count = ft_putstr_fd(va_arg(args, char *), 1);
 	else if (specifier == 'u')
-		count = ft_putnbr_fd(va_arg(args, unsigned int), 1);
+		count = ft_putnbr_fd(va_arg(args, int), specifier, 1);
 	else if (specifier == 'd' || specifier == 'i')
-		count = ft_putnbr_fd(va_arg(args, int), 1);
+		count = ft_putnbr_fd(va_arg(args, int), specifier, 1);
 	else if (specifier == 'x' || specifier == 'X')
-		count = ft_hexaputnbr_fd(va_arg(args, int), specifier, 1);
+		count = ft_hexaputnbr_fd(va_arg(args, unsigned int), specifier, 1);
 	else if (specifier == 'p')
-	{
-		write(1, "0x", 2);
-		count = 2 + ft_memputnbr_fd(va_arg(args, void *), 1);
-	}
+		count = ft_memputnbr_fd(va_arg(args, void *), 1);
 	return (count);
 }
 

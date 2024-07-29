@@ -33,11 +33,24 @@ void	ft_printnbr(int n, int fd, int *count)
 	ft_putcharint_fd(c, fd, count);
 }
 
-int	ft_putnbr_fd(int n, int fd)
+void	ft_unsintprintnbr(unsigned int n, int fd, int *count)
+{
+	char	c;
+
+	if (n / 10 != 0)
+		ft_printnbr(n / 10, fd, count);
+	c = n % 10 + '0';
+	ft_putcharint_fd(c, fd, count);
+}
+
+int	ft_putnbr_fd(int n, char specifier, int fd)
 {
 	int	count;
 
 	count = 0;
-	ft_printnbr(n, fd, &count);
+	if (specifier == 'u')
+		ft_unsintprintnbr((unsigned int)n, fd, &count);
+	else
+		ft_printnbr(n, fd, &count);
 	return (count);
 }

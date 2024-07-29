@@ -29,6 +29,9 @@ int	ft_memputnbr_fd(void *ptr, int fd)
 	int	count;
 
 	count = 0;
+	if (!ptr)
+		return (write(fd, "(nil)", 5));
+	count += write (fd, "0x", 2);
 	ft_printmem((unsigned long)ptr, fd, &count);
 	return (count);
 }

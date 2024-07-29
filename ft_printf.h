@@ -19,8 +19,8 @@
 
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
-int		ft_putnbr_fd(int n, int fd);
-int		ft_hexaputnbr_fd(int n, char specifier, int fd);
+int		ft_putnbr_fd(int n, char specifier, int fd);
+int		ft_hexaputnbr_fd(unsigned int n, char specifier, int fd);
 int		ft_memputnbr_fd(void *ptr, int fd);
 int		ft_printf(const char *format, ...);
 

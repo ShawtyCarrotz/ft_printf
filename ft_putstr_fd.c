@@ -19,6 +19,8 @@ int	ft_putstr_fd(char *s, int fd)
 
 	i = 0;
 	count = 0;
+	if (!s)
+		return (write(fd, "(null)", 6));
 	while (s[i])
 		count += write(fd, &s[i++], 1);
 	return (count);
